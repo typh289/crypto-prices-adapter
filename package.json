@@ -1,0 +1,63 @@
+{
+  "name": "crypto-prices-adapter",
+  "display_name": "CryptoPrices",
+  "version": "0.1.1",
+  "description": "Monitor crypto prices from Binance API",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typh289/crypto-prices-adapter"
+  },
+  "author": "typh289",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/typh289/crypto-prices-adapter/issues"
+  },
+  "homepage": "https://github.com/typh289/crypto-prices-adapter#readme",
+  "files": [
+    "LICENSE",
+    "SHA256SUMS",
+    "lib/index.js",
+    "lib/crypto-prices-adapter.js",
+    "manifest.json"
+  ],
+  "moziot": {
+    "api": {
+      "min": 2,
+      "max": 2
+    },
+    "plugin": true,
+    "exec": "{nodeLoader} {path}",
+    "schema": {
+      "type": "object",
+      "required": [
+        "pair"
+      ],
+      "properties": {
+        "pair": {
+          "type": "array",
+          "title": "This list of price pairs that should be watched",
+          "items": {
+            "type": "string",
+            "title": "A price pair ticker (e.g. BTCUSDT)",
+            "examples": [
+              "BTCUSDT"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "@types/node-fetch": "^2.5.7",
+    "typescript": "^3.9.2"
+  }
+}

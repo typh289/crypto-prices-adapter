@@ -1,0 +1,40 @@
+{
+  "manifest_version": 1,
+  "id": "crypto-prices-adapter",
+  "name": "CryptoPrices",
+  "short_name": "CryptoPrices",
+  "version": "0.1.1",
+  "description": "Binance API crypto prices connector",
+  "homepage_url": "https://github.com/typh289/crypto-prices-adapter",
+  "license": "MPL-2.0",
+  "author": "typh289",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "strict_min_version": "0.10.0",
+      "strict_max_version": "*",
+      "primary_type": "adapter"
+    }
+  },
+  "options": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "pair"
+      ],
+      "properties": {
+        "pair": {
+          "type": "array",
+          "title": "This list of price pairs that should be watched",
+          "items": {
+            "type": "string",
+            "title": "A price pair ticker (e.g. BTCUSDT)",
+            "examples": [
+              "BTCUSDT"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
